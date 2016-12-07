@@ -83,9 +83,9 @@ function renderRecipe(recipe) {
  */
 function renderActivities(activitiesArray) {
     console.log('Activities: ', activitiesArray);
-		if (activitiesArray.length > 0) {
-				$(".wrapper-message").hide();
-		}
+    if (activitiesArray.length > 0) {
+        $(".wrapper-message").hide();
+    }
     for (var i = 0; i < activitiesArray.length; i++) {
         renderActivity(activitiesArray[i]);
     }
@@ -97,5 +97,25 @@ function renderActivities(activitiesArray) {
  * archivo "templates/templates-activity.html"
  */
 function renderActivity(recipe) {
-	
+    var templateAct =
+        '<a href="#" class="item - activity ">' +
+        '<span class="atribution">' +
+        '<span class="avatar">' +
+        '<img src="<%= userAvatar %>" class="image-avatar">' +
+        '</span>' +
+        '<span class="meta">' +
+        '<span class="author"><%= userName %></span>' +
+        '<span class="recipe"><%= recipeName %></span>' +
+        '<span class="location">&mdash;<%= place %></span>' +
+        '</span>' +
+        '</span>' +
+    '<div class="bg-image" style="background-image: url(<%= image%>)"></div>' +
+    '</a>';
+
+    var compiled = _.template(templateAct);
+    var a = compiled(recipe);
+    console.log('mostrar', a);
+
+    var element = $(a);
+    $('.list-activities').append(element);
 }
