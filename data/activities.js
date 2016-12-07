@@ -1,4 +1,4 @@
-var activities = [
+var activitiesArray = [
 	{
       recipeName: 'summer-apricots-honey-panna-cotta',
       text: 'I substituted strawberries for apricots - incredible!',

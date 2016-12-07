@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".js-back").hide();
     renderHighlightedRecipes(recipesArray);
     printNews();
-    renderActivities(activities);
+    renderActivities(activitiesArray);
 });
 
 function printNews() {
@@ -83,10 +83,10 @@ function renderRecipe(recipe) {
  */
 function renderActivities(activitiesArray) {
     console.log('Activities: ', activitiesArray);
-    if (activitiesArray.length > 0) {
-        $(".wrapper-message").hide();
-    }
-    for (var i = 0; i < activitiesArray.length; i++) {
+      if (activitiesArray.length > 0) {
+          $(".wrapper-message").hide();
+      }
+      for (var i = 0; i < activitiesArray.length; i++) {
         renderActivity(activitiesArray[i]);
     }
 }
@@ -98,15 +98,15 @@ function renderActivities(activitiesArray) {
  */
 function renderActivity(recipe) {
     var templateAct =
-        '<a href="#" class="item - activity ">' +
-        '<span class="atribution">' +
+        '<a href="#" class="item-activity">' +
+        '<span class="attribution">' +
         '<span class="avatar">' +
         '<img src="<%= userAvatar %>" class="image-avatar">' +
         '</span>' +
         '<span class="meta">' +
         '<span class="author"><%= userName %></span>' +
         '<span class="recipe"><%= recipeName %></span>' +
-        '<span class="location">&mdash;<%= place %></span>' +
+        '<span class="location"><%= place %></span>' +
         '</span>' +
         '</span>' +
     '<div class="bg-image" style="background-image: url(<%= image%>)"></div>' +
@@ -114,7 +114,7 @@ function renderActivity(recipe) {
 
     var compiled = _.template(templateAct);
     var a = compiled(recipe);
-    console.log('mostrar', a);
+    console.log(a);
 
     var element = $(a);
     $('.list-activities').append(element);
